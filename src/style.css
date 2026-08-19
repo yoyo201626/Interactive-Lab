@@ -1,0 +1,60 @@
+:root {
+  --text: #4b5563;
+  --text-h: #0f172a;
+  --text-muted: #64748b;
+  --bg: #ffffff;
+  --bg-muted: #f8fafc;
+  --border: #e2e8f0;
+  --accent: #2563eb;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  font: 15px/1.5 var(--sans);
+  color-scheme: light;
+  color: var(--text);
+  background: var(--bg-muted);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+}
+
+.main-area {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
