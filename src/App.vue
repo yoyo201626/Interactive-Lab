@@ -94,6 +94,8 @@ function handleReset() {
         :current-time="currentTime"
         :show-components="settings.showComponents"
         :launch-angle="settings.angle"
+        :playing="playing"
+        @toggle-play="handleTogglePlay"
       />
       <StatsCards
         :max-height="simulation.maxHeightPoint.y"

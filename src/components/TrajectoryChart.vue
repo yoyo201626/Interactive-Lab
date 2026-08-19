@@ -11,7 +11,10 @@ const props = defineProps({
   currentTime: { type: Number, required: true },
   showComponents: { type: Boolean, default: true },
   launchAngle: { type: Number, required: true },
+  playing: { type: Boolean, required: true },
 })
+
+defineEmits(['toggle-play'])
 
 const width = 760
 const height = 460
@@ -273,15 +276,42 @@ const treesAndHouse = [
         <circle :cx="sx(currentPoint.x)" :cy="sy(currentPoint.y)" r="7" class="marker marker-current" />
       </g>
     </svg>
+
+    <button type="button" class="mobile-play-btn" @click="$emit('toggle-play')">
+      {{ playing ? 'Pause' : 'Play' }}
+    </button>
   </div>
 </template>
 
 <style scoped>
 .chart-wrapper {
+  position: relative;
   flex: 1;
   min-height: 0;
   display: flex;
   padding: 20px 20px 0;
+}
+
+.mobile-play-btn {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .mobile-play-btn {
+    display: block;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .chart-svg {

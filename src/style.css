@@ -52,9 +52,25 @@ body {
     flex-direction: column;
   }
 
+  /* Let the chart and stat cards become direct flex items of .app-shell so
+     the control panel can be ordered between them, right under the chart. */
+  .main-area {
+    display: contents;
+  }
+
+  .chart-wrapper {
+    order: 1;
+  }
+
   .sidebar {
     width: 100%;
+    order: 2;
     border-right: none;
+    border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+  }
+
+  .stats {
+    order: 3;
   }
 }
